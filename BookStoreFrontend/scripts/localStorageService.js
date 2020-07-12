@@ -1,4 +1,5 @@
 storageService = {
+
     addToLocalStorage : function(item,storageKey){
         let storageData = [];
 
@@ -14,6 +15,7 @@ storageService = {
     
         localStorage.setItem(storageKey, JSON.stringify(storageData));
     },
+
     removeFromLocalStorage : function (item,storageKey){
         let existingStorage = localStorage.getItem(storageKey);
 
@@ -27,6 +29,7 @@ storageService = {
             localStorage.setItem(storageKey, JSON.stringify(storageData));
         }
     },
+
     existingStorage : function (item,storageKey){
         let existingStorage = localStorage.getItem(storageKey);
         let exists = false;
@@ -37,5 +40,13 @@ storageService = {
         }
     
         return exists;
+    },
+
+    getFromLocalStorage : function(storageKey){
+        return JSON.parse(localStorage.getItem(storageKey));
+    },
+
+    clearStorage : function(storageKey){
+        localStorage.removeItem(storageKey);
     }
 };

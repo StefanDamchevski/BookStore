@@ -40,6 +40,8 @@ namespace BookStore
 
             services.AddTransient<IBooksRepository, BooksRepository>();
             services.AddTransient<IBooksService, BooksService>();
+            services.AddTransient<IOrdersService, OrdersService>();
+            services.AddTransient<IOrdersRepository, OrdersRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

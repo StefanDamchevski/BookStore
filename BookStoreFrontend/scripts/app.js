@@ -1,4 +1,6 @@
-axios.get('https://localhost:44342/api/books')
+
+function initBooks(){
+  axios.get('https://localhost:44342/api/books')
   .then(function (response) {
     response.data.forEach(book => {
         createBookCard(book);
@@ -7,6 +9,9 @@ axios.get('https://localhost:44342/api/books')
   .catch(function (error) {
     console.log(error);
   });
+}
+
+initBooks();
 
   function createBookCard(book){
         let row = document.getElementById("rowContainer");
@@ -23,7 +28,7 @@ axios.get('https://localhost:44342/api/books')
         cardBody.classList.add("card-body");
         card.appendChild(cardBody);
         
-        const titleMaxLength = 20;
+        const titleMaxLength = 10;
         let bookTitle = document.createElement("h5");
         bookTitle.classList.add("card-title");
         bookTitle.innerHTML = book.title.substring(0,titleMaxLength) + "...";
@@ -34,7 +39,7 @@ axios.get('https://localhost:44342/api/books')
         bookAuthor.innerHTML = book.author;
         cardBody.appendChild(bookAuthor);
         
-        const genreMaxLength = 20;
+        const genreMaxLength = 10;
         let bookGenre = document.createElement("h5");
         bookGenre.classList.add("card-title");
         bookGenre.innerHTML = `Genre: ${book.genre.substring(0,genreMaxLength)}...`;

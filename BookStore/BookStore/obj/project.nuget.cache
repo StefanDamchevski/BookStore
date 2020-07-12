@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "l+ACMNbcyQZsNs978+1wYMXMOO+Lw6oiFQcB4iSXyPR/zTT6sV3k7bGy6Ikh729SDxMGMdfZaXfDM6aigjz/iQ==",
+  "dgSpecHash": "jmKlKp3ZVN/8O8GWSMuCJH+k24GLiq9+H4ca7wf562KY/WQTN+KU0x36O1+F97kF/XePvBEXSoB0fyneyTr6vg==",
   "success": true,
-  "projectFilePath": "D:\\Academy\\Web API\\BookStore\\BookStore\\BookStore.csproj",
+  "projectFilePath": "D:\\Academy\\Web API\\BookStoreFull\\BookStore\\BookStore\\BookStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\Stefan\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",

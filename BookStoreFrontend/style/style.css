@@ -7,3 +7,25 @@
 .col-md-3{
     margin-top: 2%;
 }
+
+.bookCard{
+    padding:20px;
+    margin:20px;
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+}
+
+.form-group{
+    width:50%;
+}
+
+.form-container{
+    padding:20px;
+    margin-bottom:50px;
+}
+
+.orderDetails{
+    border: 1px solid black;
+    padding: 20px;
+}

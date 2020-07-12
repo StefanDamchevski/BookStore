@@ -15,28 +15,41 @@
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link navbar-light" href="./index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link navbar-light" href="./ContactUs.html">Contact Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link navbar-light" href="./AboutUs.html">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link navbar-light" href="./cart.html">Cart</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link navbar-light" href="./viewOrder.html">View Order</a>
-            </li>
-          </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link navbar-light" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link navbar-light" href="./ContactUs.html">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navbar-light" href="./AboutUs.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link navbar-light" href="./cart.html">Cart</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link navbar-light" href="./viewOrder.html">View Order</a>
+                </li>
+            </ul>
         </div>
       </nav>
+      <div class="container form-container">
+        <h2>View Order</h2>
+        <hr/>
+        <div class="form-group">
+            <label for="customerOrderCode">Order Code</label>
+            <input class="form-control" id="customerOrderCode" placeholder="Please enter order code" validate=true/>
+        </div>
+        <div class="form-group">
+            <label for="customerEmail">Email</label>
+            <input class="form-control" id="customerEmail" placeholder="Please enter email" validate=true/>
+        </div>
+        <button class="btn btn-primary" onclick="viewOrder()">View Order</button>
+    </div>
 
       <div class="container">
-          <div class="row" id="rowContainer">
+          <div id="rowContainer">
 
           </div>
       </div>
@@ -46,6 +59,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./scripts/localStorageService.js"></script>
-    <script src="./scripts/app.js"></script>
+    <script src="./scripts/viewOrder.js"></script>
 </body>
 </html>
