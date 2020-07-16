@@ -1,6 +1,7 @@
 ﻿using BookStore.Dto;
 using BookStore.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace BookStore.Controllers
 {
@@ -14,29 +15,53 @@ namespace BookStore.Controllers
         {
             this.booksService = booksService;
         }
+        /// <summary>
+        /// Returns list of all books 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public IActionResult Get()
+        public ActionResult<List<BooksDto>> Get()
         {
             return Ok(booksService.GetAll());
         }
+        /// <summary>
+        /// Returns a book by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{id}")]
-        public IActionResult Get(int id)
+        public ActionResult<BooksDto> Get(int id)
         {
             return Ok(booksService.GetById(id));
         }
+        /// <summary>
+        /// Returns list of books by author
+        /// </summary>
+        /// <param name="author"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("author")]
-        public IActionResult Get(string author)
+        public ActionResult<List<BooksDto>> Get(string author)
         {
             return Ok(booksService.GetByAuthor(author));
         }
+        /// <summary>
+        /// Creates a book
+        /// </summary>
+        /// <param name="booksDto"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Create(BooksDto booksDto)
         {
             booksService.Create(booksDto);
             return Ok();
         }
+        /// <summary>
+        /// Deletes a book by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("{id}")]
         public IActionResult Delete(int id)
@@ -44,6 +69,11 @@ namespace BookStore.Controllers
             booksService.Delete(id);
             return Ok();
         }
+        /// <summary>
+        /// Updates book
+        /// </summary>
+        /// <param name="booksDto"></param>
+        /// <returns></returns>
         [HttpPut]
         public IActionResult Update(BooksDto booksDto)
         {

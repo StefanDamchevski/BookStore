@@ -76,10 +76,16 @@ function showOrder(orderDetails){
         let bookPrice = document.createElement("h4");
         bookPrice.innerHTML = `Price: ${orderDetails.books[i].price}`;
         cardBooks.appendChild(bookPrice);
-
     }
+
+    let orderStatus = document.createElement("h4");
+    orderStatus.innerHTML = `Status: ${orderDetails.status}`;
+    card.appendChild(orderStatus);
 
     let cardOrderFullPrice = document.createElement("h4");
     cardOrderFullPrice.innerHTML = `Full Price: ${orderDetails.fullPrice}`;
     card.appendChild(cardOrderFullPrice);
+
+    let hr = document.createElement("hr");
+    card.appendChild(hr);
 }

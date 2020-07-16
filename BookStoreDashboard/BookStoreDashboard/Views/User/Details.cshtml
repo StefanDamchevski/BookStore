@@ -1,0 +1,18 @@
+﻿@model BookStoreDashboard.ModelsDto.UserDtoModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h4>User Details</h4>
+<hr />
+<div>
+    <div style="padding:2%">
+        <p>User ID: @Model.UserId</p>
+        <p>Email: @Model.Email</p>
+        <p>Username: @Model.UserName</p>
+    </div>
+    <div>
+        <a class="btn btn-outline-primary" asp-controller="User" asp-action="Edit" asp-route-userId="@Model.UserId">Edit</a>
+    </div>
+</div>

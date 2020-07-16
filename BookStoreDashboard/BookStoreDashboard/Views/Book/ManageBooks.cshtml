@@ -1,0 +1,42 @@
+﻿@model List<BookStoreDashboard.ModelsDto.BookDto>
+
+@{
+    ViewData["Title"] = "ManageBooks";
+}
+
+<h1>ManageBooks</h1>
+
+<p>
+    <a asp-controller="Book" asp-action="Create" class="btn btn-primary">Create Book</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Price</th> 
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Genre</td>
+                <td>@book.Price</td>
+                <td>@book.Quantity</td>
+                <td>
+                    <a asp-controller="Book" asp-action="Details" asp-route-bookId="@book.Id">Details</a> |
+                    <a asp-controller="Book" asp-action="Edit" asp-route-bookId="@book.Id">Edit</a> |
+                    <a asp-controller="Book" asp-action="Delete" asp-route-bookId="@book.Id" onclick="return confirm('Are you sure you want to delete @book.Title?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

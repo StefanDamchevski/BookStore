@@ -1,7 +1,9 @@
 ﻿using BookStore.Data;
 using BookStore.Dto;
 using BookStore.Helpers;
+using BookStore.Repositories.Interfaces;
 using BookStore.Services.Interfaces;
+using Microsoft.OpenApi.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,11 +35,22 @@ namespace BookStore.Services
                 }).ToList(),
                 FullPrice = books.Sum(x => x.Price),
                 OrderCode = RandomString.GenerateRandomString(6),
+                Status = StatusEnum.Pending,
             };
 
             ordersRepository.Create(newOrder);
 
             return newOrder.OrderCode;
+        }
+
+        public List<OrderDto> GetAll()
+        {
+            return ordersRepository.GetAll().Select(x => x.ToOrderDto()).ToList();
+        }
+
+        public OrderDto GetById(int id)
+        {
+           return ordersRepository.GetById(id).ToOrderDto();
         }
 
         public ViewOrderDto GetOrder(string email, string orderCode)
@@ -52,9 +65,24 @@ namespace BookStore.Services
                 Books = order.BookOrders
                 .Select(x => x.Book.ToBooksDto())
                 .ToList(),
+                Status = order.Status.GetDisplayName(),
             };
 
             return viewOrder;
+        }
+
+        public void UpdateStatus(OrderDto order)
+        {
+            Order dbOrder = ordersRepository.GetById(order.Id);
+
+            StatusEnum.TryParse(order.Status, out StatusEnum result);
+
+            if (dbOrder != null)
+            {
+                dbOrder.Status = result;
+            }
+
+            ordersRepository.Update(dbOrder);
         }
     }
 }

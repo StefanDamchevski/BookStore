@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BookStore</name>
+    </assembly>
+    <members>
+        <member name="M:BookStore.Controllers.BooksController.Get">
+            <summary>
+            Returns list of all books 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore.Controllers.BooksController.Get(System.Int32)">
+            <summary>
+            Returns a book by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore.Controllers.BooksController.Get(System.String)">
+            <summary>
+            Returns list of books by author
+            </summary>
+            <param name="author"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore.Controllers.BooksController.Create(BookStore.Dto.BooksDto)">
+            <summary>
+            Creates a book
+            </summary>
+            <param name="booksDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore.Controllers.BooksController.Delete(System.Int32)">
+            <summary>
+            Deletes a book by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore.Controllers.BooksController.Update(BookStore.Dto.BooksDto)">
+            <summary>
+            Updates book
+            </summary>
+            <param name="booksDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore.Controllers.OrdersController.Create(BookStore.Dto.CreateOrderDto)">
+            <summary>
+            Creates an order and returns a string
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore.Controllers.OrdersController.ViewOrder(System.String,System.String)">
+            <summary>
+            Returns order with given email and orderCode
+            </summary>
+            <param name="email"></param>
+            <param name="orderCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore.Controllers.OrdersController.GetAll">
+            <summary>
+            Returns all orders
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore.Controllers.OrdersController.GetById(System.Int32)">
+            <summary>
+            Returns order by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookStore.Controllers.OrdersController.UpdateStatus(BookStore.Dto.OrderDto)">
+            <summary>
+            Updates order status
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

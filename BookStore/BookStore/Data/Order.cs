@@ -18,6 +18,7 @@ namespace BookStore.Data
         public string OrderCode { get; set; }
         [Required]
         public decimal FullPrice { get; set; }
+        public StatusEnum Status { get; set; }
         public List<BookOrders> BookOrders { get; set; }
     }
 }

@@ -1,8 +1,6 @@
-﻿using System;
+﻿using BookStore.Data;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BookStore.Dto
 {
@@ -14,6 +12,7 @@ namespace BookStore.Dto
         public string OrderCode { get; set; }
         [Required]
         public decimal FullPrice { get; set; }
+        public string Status { get; set; }
         public List<BooksDto> Books { get; set; }
     }
 }

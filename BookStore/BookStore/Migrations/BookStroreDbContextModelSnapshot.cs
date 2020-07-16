@@ -87,6 +87,8 @@ namespace BookStore.Migrations
                     b.Property<string>("Phone")
                         .IsRequired();
 
+                    b.Property<int>("Status");
+
                     b.HasKey("Id");
 
                     b.ToTable("Orders");

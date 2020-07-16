@@ -1,0 +1,43 @@
+﻿@model List<BookStoreDashboard.ModelsDto.OrderDto>
+@{
+    ViewData["Title"] = "ManageOrders";
+}
+
+<h1>ManageOrders</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Full Price</th>
+            <th>Change Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var order in Model)
+        {
+            <tr>
+                <td>@order.Name</td>
+                <td>@order.Email</td>
+                <td>@order.Address</td>
+                <td>@order.FullPrice</td>
+                <td>
+                    @if(order.Status == StatusEnum.Pending)
+                    {
+                        <a asp-controller="Order" asp-action="SetStatus" asp-route-orderId="@order.Id" asp-route-status="InProcess" class="btn btn-primary">Process</a>
+                    }
+                    else if(order.Status == StatusEnum.InProcess)
+                    {
+                        <a asp-controller="Order" asp-action="SetStatus" asp-route-orderId="@order.Id" asp-route-status="Done" class="btn btn-success">Set Done</a>
+                    }
+                    else
+                    {
+                        <p class="text-success">Done</p>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
