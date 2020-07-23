@@ -1,5 +1,6 @@
 ﻿using BookStore.Dto;
 using BookStore.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -44,6 +45,7 @@ namespace BookStore.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [Authorize]
         public ActionResult<List<OrderDto>> GetAll()
         {
             List<OrderDto> orderDto = ordersService.GetAll();
@@ -56,6 +58,7 @@ namespace BookStore.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("{id}")]
+        [Authorize]
         public ActionResult<OrderDto> GetById(int id)
         {
             OrderDto orderDto = ordersService.GetById(id);
@@ -67,6 +70,7 @@ namespace BookStore.Controllers
         /// <param name="order"></param>
         /// <returns></returns>
         [HttpPut]
+        [Authorize]
         public IActionResult UpdateStatus(OrderDto order)
         {
             ordersService.UpdateStatus(order);

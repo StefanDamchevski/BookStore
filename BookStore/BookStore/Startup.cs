@@ -1,4 +1,5 @@
-﻿using BookStore.Data;
+﻿using BookStore.Customization.Auth;
+using BookStore.Data;
 using BookStore.Repositories;
 using BookStore.Repositories.Interfaces;
 using BookStore.Services;
@@ -52,7 +53,11 @@ namespace BookStore
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
-
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = ApiKeyAuthenticationOptions.DefaultScheme;
+                options.DefaultChallengeScheme = ApiKeyAuthenticationOptions.DefaultScheme;
+            }).AddApiKeySupport(options => { });
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -61,6 +66,7 @@ namespace BookStore
             services.AddTransient<IBooksService, BooksService>();
             services.AddTransient<IOrdersService, OrdersService>();
             services.AddTransient<IOrdersRepository, OrdersRepository>();
+            services.AddTransient<IApplicationRepository, ApplicationRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,6 +89,7 @@ namespace BookStore
             app.UseCors("CorsPolicy");
 
             app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseMvc();
         }
     }

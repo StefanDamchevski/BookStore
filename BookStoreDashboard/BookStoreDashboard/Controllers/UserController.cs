@@ -1,5 +1,6 @@
 ﻿using BookStoreDashboard.ModelsDto;
 using BookStoreDashboard.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -32,17 +33,20 @@ namespace BookStoreDashboard.Controllers
             }
             return View(model);
         }
+        [Authorize]
         public async Task<IActionResult> Details(string userId)
         {
             UserDtoModel model = await userService.GetById(userId);
             return View(model);
         }
+        [Authorize]
         public async Task<IActionResult> Edit(string userId)
         {
             UserDtoModel model = await userService.GetById(userId);
             return View(model);
         }
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Edit(UserDtoModel model)
         {
             if (ModelState.IsValid)

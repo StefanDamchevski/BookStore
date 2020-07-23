@@ -1,7 +1,6 @@
 ﻿using BookStoreDashboard.ModelsDto;
 using BookStoreDashboard.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity.UI.V4.Pages.Internal;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
